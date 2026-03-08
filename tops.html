@@ -1,0 +1,189 @@
+<!doctype html>
+<head>
+	<title> TOPS </title>
+
+<link rel="icon" type="image/png" href="verenalogo.png">
+
+    
+	<style>
+		body{
+			margin: 0;
+            background-image: url("background.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no repeat;
+            height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            margin: 40px 0;
+        }
+
+        /* Grid Layout for T-shirts */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: white;
+            padding: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .product-card:hover {
+            transform: scale(1.03);
+        }
+
+        .product-card img {
+            width: 100%;
+            display: block;
+            border-radius: 4px;
+        }
+
+        /* The Modal (Dialogue Box) */
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            width: 70%;
+            max-width: 800px;
+            border-radius: 15px;
+            display: flex; /* Flex for side-by-side layout */
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .modal-left { flex: 1; }
+        .modal-right { flex: 1; padding-left: 30px; }
+
+        .modal-left img {
+            width: 100%;
+            border: 3px solid #7B2CBF;
+            border-radius: 5px;
+        }
+
+        .price-tag { font-size: 24px; font-weight: bold; }
+        .old-price { text-decoration: line-through; color: #777; margin-right: 10px; }
+
+        .buy-now-btn {
+            background-color: #ffdada; /* Light pink from screenshot */
+            color: black;
+            padding: 15px 30px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            text-transform: uppercase;
+        
+		}
+	</style>
+
+	</head>
+	<body>
+		<h1 align="center"> <strong> TOPS </strong></h1>
+
+    <div class="product-grid">
+        
+        <div class="product-card" onclick="openModal('Floral Print Frill Trim Lantern SLeeve Blouse', '799', '499', 'top1.jpg')">
+            <img src="top1.jpg" alt="top 1">
+        </div>
+
+        <div class="product-card" onclick="openModal('top with darkblue floral print', '899', '599', 'top2.jpg')">
+            <img src="top2.jpg" alt="top 2">
+        </div>
+
+        <div class="product-card" onclick="openModal('cute top for women', '999', '699', 'top3.jpg')">
+            <img src="top3.jpg" alt="top 3">
+
+
+       
+
+    </div>
+
+     <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            
+            <div class="modal-left">
+                <img id="modalImg" src="" alt="Product Image">
+                <div style="margin-top: 15px; font-weight: bold; line-height: 1.6;">
+                    Fabric: 100% Cotton<br>
+                    Fit: Regular fit<br>
+                    Occasion: Event/casual college wear
+                </div>
+            </div>
+
+            <div class="modal-right">
+                <h2 id="modalTitle" style="font-family: cursive;">Product Name</h2>
+                <p class="price-tag">price: <span class="old-price" id="modalOldPrice"></span> <span id="modalNewPrice"></span></p>
+                
+                <p><strong>size available:</strong></p>
+                <ul>
+                    <li>S</li>
+                    <li>M</li>
+                    <li>L</li>
+                </ul>
+
+                <a href="#" id="whatsappLink" class="buy-now-btn" target="_blank">BUY NOW</a>
+            </div>
+        </div>
+   
+
+    <script>
+        function openModal(name, oldPrice, newPrice, imgSrc) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalOldPrice').innerText = oldPrice;
+            document.getElementById('modalNewPrice').innerText = newPrice;
+            document.getElementById('modalImg').src = imgSrc;
+            
+            // Set WhatsApp link (Replace with your number)
+            const message = encodeURIComponent("Hi! I want to order the " + name);
+            document.getElementById('whatsappLink').href = "https://wa.me/YOUR_PHONE_NUMBER?text=" + message;
+            
+            document.getElementById('productModal').style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById('productModal').style.display = "none";
+        }
+
+        // Close if user clicks outside the box
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('productModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+	</body>
+	</html>
