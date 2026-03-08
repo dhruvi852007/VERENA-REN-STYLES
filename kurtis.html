@@ -105,6 +105,28 @@
             border-radius: 5px;
             text-transform: uppercase;
         }
+		@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for Android */
+        gap: 10px;
+    }
+
+    .modal-content {
+        flex-direction: column; /* Stack image on top of text for Mobile */
+        width: 90%;
+        margin: 5% auto;
+        height: 80vh;
+        overflow-y: auto; /* Scrollable if text is long */
+    }
+
+    .modal-right {
+        padding-left: 0;
+        padding-top: 20px;
+    }
+
+    h1 {
+        font-size: 30px; /* Smaller title for mobile screens */
+    }
    
 	</style>
 </head>
@@ -187,4 +209,5 @@
         }
     </script>
 </body>
+
 </html>
