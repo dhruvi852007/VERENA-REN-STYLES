@@ -60,6 +60,23 @@
 .category-card img:hover {
     transform: scale(1.05);
 }
+@media (max-width: 768px) {
+    .categories {
+        flex-direction: column; /* Stacks the 3 categories vertically */
+        align-items: center;    /* Centers them on the screen */
+        gap: 30px;              /* Adds space between the stacked cards */
+        margin-top: 30px;
+    }
+
+    .category-card img {
+        width: 80vw;   /* Makes the images wider to fit the phone screen */
+        height: auto;  /* Maintains the correct proportions */
+    }
+
+    .logo-container img {
+        width: 60%;    /* Shrinks the logo so it fits better on a phone */
+    }
+		 
     </style>
 </head>
 
@@ -87,4 +104,5 @@
 
 </body>
 </html>
+
 
